@@ -1,0 +1,20 @@
+{
+  "name": "Pearl&Thyme",
+  "short_name": "Pearl&Thyme",
+  "description": "Pearl&Thyme — Modern Indian Cuisine & Botanicals. Dine in, take away, deliver.",
+  "icons": [
+    {
+      "src": "assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#C4593A",
+  "background_color": "#FAF6F0",
+  "display": "standalone"
+}

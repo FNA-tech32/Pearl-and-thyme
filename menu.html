@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pearl&Thyme — Full Menu</title>
+  <meta name="description"
+    content="Explore the full menu at Pearl&Thyme. Modern Indian cuisine — starters, mains, biryani, pizza, breads, desserts & drinks." />
+  <link rel="shortcut icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FAF6F0;
+      --warm-white: #FFFDF8;
+      --paper: #F3EDE3;
+      --terra: #C4593A;
+      --saffron: #E07B39;
+      --gold: #C9A84C;
+      --forest: #2D4A3E;
+      --charcoal: #1C1C1C;
+      --brown: #5C3A1E;
+      --muted: #8A7B6B;
+      --border: rgba(196, 89, 58, .15);
+      --ff-display: 'Cormorant Garamond', serif;
+      --ff-body: 'DM Sans', sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    ::selection {
+      background: var(--terra);
+      color: #fff;
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--cream);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--terra);
+      border-radius: 2px;
+    }
+
+    /* ═══ NAV ═══ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 800;
+      background: rgba(250, 246, 240, .96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-logo-main {
+      font-family: var(--ff-display);
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+
+    .nav-logo-main span {
+      color: var(--terra);
+    }
+
+    .nav-logo-sub {
+      font-family: var(--ff-body);
+      font-size: 8px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0;
+    }
+
+    .nl {
+      font-family: var(--ff-body);
+      font-size: 12px;
+      letter-spacing: .06em;
+      color: var(--muted);
+      padding: 6px 16px;
+      transition: color .22s;
+      position: relative;
+    }
+
+    .nl::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 16px;
+      right: 16px;
+      height: 1px;
+      background: var(--terra);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .3s var(--ease);
+    }
+
+    .nl:hover,
+    .nl.on {
+      color: var(--terra);
+    }
+
+    .nl:hover::after,
+    .nl.on::after {
+      transform: scaleX(1);
+    }
+
+    .nav-r {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    /* Cart toggle btn */
+    .cart-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--ff-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      cursor: pointer;
+      border-radius: 2px;
+      background: var(--forest);
+      color: #fff;
+      border: none;
+      transition: all .25s var(--ease);
+      position: relative;
+    }
+
+    .cart-toggle:hover {
+      background: #1d3328;
+    }
+
+    .cart-badge {
+      display: none;
+      background: var(--terra);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 10px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+    }
+
+    /* ═══ BUTTONS ═══ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--ff-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      cursor: pointer;
+      transition: all .25s var(--ease);
+      white-space: nowrap;
+      border: none;
+      border-radius: 2px;
+    }
+
+    .btn-terra {
+      background: var(--terra);
+      color: #fff;
+    }
+
+    .btn-terra:hover {
+      background: var(--brown);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(196, 89, 58, .3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--charcoal);
+    }
+
+    .btn-outline:hover {
+      background: var(--charcoal);
+      color: #fff;
+    }
+
+    .btn-forest {
+      background: var(--forest);
+      color: #fff;
+    }
+
+    .btn-forest:hover {
+      background: #1d3328;
+    }
+
+    .btn-wa {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .btn-wa:hover {
+      background: #1fb859;
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 10px;
+    }
+
+    .btn-lg {
+      padding: 14px 32px;
+      font-size: 12px;
+    }
+
+    /* ═══ PAGE HEADER ═══ */
+    .page-hd {
+      background: var(--forest);
+      padding: 72px 0 52px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hd::before {
+      content: 'Menu';
+      position: absolute;
+      bottom: -30px;
+      right: -20px;
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: clamp(140px, 18vw, 260px);
+      font-weight: 600;
+      color: rgba(255, 255, 255, .04);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+
+    /* Dot texture */
+    .page-hd::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255, 255, 255, .04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .phd-in {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .phd-eyebrow {
+      font-family: var(--ff-body);
+      font-size: 10px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .phd-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .phd-h {
+      font-family: var(--ff-display);
+      font-size: clamp(48px, 6vw, 80px);
+      color: #fff;
+      line-height: .95;
+      letter-spacing: -.01em;
+      font-weight: 600;
+    }
+
+    .phd-h em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold);
+    }
+
+    .phd-sub {
+      font-family: var(--ff-body);
+      font-size: 13px;
+      color: rgba(255, 255, 255, .45);
+      margin-top: 16px;
+      letter-spacing: .04em;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    .phd-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 44px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      padding-top: 28px;
+    }
+
+    .pst {
+      padding: 0 40px;
+      border-right: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .pst:first-child {
+      padding-left: 0;
+    }
+
+    .pst:last-child {
+      border-right: none;
+    }
+
+    .pst-n {
+      font-family: var(--ff-display);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .pst-l {
+      font-family: var(--ff-body);
+      font-size: 9px;
+      color: rgba(255, 255, 255, .4);
+      margin-top: 4px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    /* ═══ PROMO BANNER ═══ */
+    .promo {
+      background: var(--terra);
+      padding: 11px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pb-txt {
+      font-family: var(--ff-display);
+      font-size: 14px;
+      letter-spacing: .06em;
+      color: #fff;
+      font-style: italic;
+    }
+
+    .pb-code {
+      background: rgba(255, 255, 255, .2);
+      color: #fff;
+      padding: 4px 14px;
+      font-family: var(--ff-body);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      border-radius: 2px;
+    }
+
+    .pb-r {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .pb-sub {
+      font-family: var(--ff-body);
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .7);
+    }
+
+    /* ═══ FILTER TABS ═══ */
+    .filter-wrap {
+      position: sticky;
+      top: 68px;
+      z-index: 700;
+      background: rgba(250, 246, 240, .97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .filter-in {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 56px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .filter-in::-webkit-scrollbar {
+      display: none;
+    }
+
+    .fb {
+      padding: 16px 20px;
+      border: none;
+      background: none;
+      font-family: var(--ff-body);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all .22s;
+      flex-shrink: 0;
+    }
+
+    .fb:hover {
+      color: var(--charcoal);
+    }
+
+    .fb.on {
+      color: var(--terra);
+      border-bottom-color: var(--terra);
+      font-weight: 500;
+    }
+
+    /* ═══ MENU BODY ═══ */
+    .menu-body {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 56px 200px;
+    }
+
+    .msec {
+      padding: 56px 0 16px;
+    }
+
+    .ms-hd {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ms-h {
+      font-family: var(--ff-display);
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: .02em;
+      line-height: 1;
+    }
+
+    .ms-h em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--terra);
+    }
+
+    .ms-sub {
+      font-family: var(--ff-body);
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 5px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .ms-ct {
+      font-family: var(--ff-body);
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ═══ CARD GRID ═══ */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    /* ═══ MENU CARD ═══ */
+    .mc {
+      background: var(--warm-white);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .32s var(--ease), box-shadow .32s var(--ease);
+    }
+
+    .mc:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 48px rgba(92, 58, 30, .12);
+    }
+
+    /* Category accent bar */
+    .mc-bar {
+      height: 3px;
+    }
+
+    .mc[data-cat="starters"] .mc-bar {
+      background: linear-gradient(90deg, var(--gold), var(--saffron));
+    }
+
+    .mc[data-cat="mains"] .mc-bar {
+      background: linear-gradient(90deg, var(--terra), var(--saffron));
+    }
+
+    .mc[data-cat="pizza"] .mc-bar {
+      background: linear-gradient(90deg, #C45C2A, var(--gold));
+    }
+
+    .mc[data-cat="rice"] .mc-bar {
+      background: linear-gradient(90deg, var(--forest), var(--saffron));
+    }
+
+    .mc[data-cat="breads"] .mc-bar {
+      background: linear-gradient(90deg, #9E8E7E, var(--gold));
+    }
+
+    .mc[data-cat="drinks"] .mc-bar {
+      background: linear-gradient(90deg, #5C8BAA, var(--saffron));
+    }
+
+    .mc[data-cat="desserts"] .mc-bar {
+      background: linear-gradient(90deg, #8B4A7A, var(--terra));
+    }
+
+    /* Food image */
+    .mc-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .mc-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .65s var(--ease), filter .4s;
+      filter: saturate(.95);
+    }
+
+    .mc:hover .mc-img img {
+      transform: scale(1.07);
+      filter: saturate(1.1);
+    }
+
+    /* Price badge */
+    .mc-price-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: var(--warm-white);
+      color: var(--terra);
+      font-family: var(--ff-display);
+      font-size: 17px;
+      font-weight: 600;
+      padding: 5px 11px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+    }
+
+    /* Veg indicator */
+    .vdot {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      border: 2px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 253, 248, .85);
+    }
+
+    .vdot::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .vdot.veg {
+      border-color: #3a8a3a;
+    }
+
+    .vdot.veg::after {
+      background: #3a8a3a;
+    }
+
+    .vdot.nv {
+      border-color: #c43a3a;
+    }
+
+    .vdot.nv::after {
+      background: #c43a3a;
+    }
+
+    /* Ribbon */
+    .mc-ribbon {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      z-index: 2;
+      background: var(--terra);
+      color: #fff;
+      font-family: var(--ff-body);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      clip-path: polygon(8px 0, 100% 0, 100% 100%, 8px 100%, 0 50%);
+    }
+
+    /* Card body */
+    .mc-body {
+      padding: 18px 20px 22px;
+    }
+
+    .mc-cat {
+      font-family: var(--ff-body);
+      font-size: 9px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 6px;
+    }
+
+    .mc-name {
+      font-family: var(--ff-display);
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.1;
+      margin-bottom: 7px;
+    }
+
+    .mc-desc {
+      font-family: var(--ff-body);
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .mc-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .mc-tags {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-family: var(--ff-body);
+      font-size: 8px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      border: 1px solid;
+    }
+
+    .tag-v {
+      border-color: #3a8a3a;
+      color: #3a8a3a;
+    }
+
+    .tag-n {
+      border-color: #c43a3a;
+      color: #c43a3a;
+    }
+
+    .tag-s {
+      border-color: var(--saffron);
+      color: var(--saffron);
+    }
+
+    .tag-c {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .tag-m {
+      border-color: var(--muted);
+      color: var(--muted);
+    }
+
+    /* Add button */
+    .add-btn {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      background: var(--terra);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 300;
+      transition: all .25s var(--ease-back);
+    }
+
+    .add-btn:hover {
+      background: var(--brown);
+      transform: rotate(90deg) scale(1.1);
+    }
+
+    .add-btn.added {
+      background: var(--forest);
+      transform: scale(1.15);
+    }
+
+    /* ═══ CART BAR ═══ */
+    .cart-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      background: var(--charcoal);
+      padding: 14px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transform: translateY(100%);
+      transition: transform .4s var(--ease);
+      box-shadow: 0 -4px 30px rgba(28, 28, 28, .25);
+    }
+
+    .cart-bar.show {
+      transform: translateY(0);
+    }
+
+    .cb-l {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cb-badge {
+      background: var(--terra);
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-display);
+      font-size: 16px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .cb-lbl {
+      font-family: var(--ff-body);
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .5);
+    }
+
+    .cb-amt {
+      font-family: var(--ff-display);
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .cb-r {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cb-clr {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, .2);
+      color: rgba(255, 255, 255, .5);
+      font-family: var(--ff-body);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all .2s;
+    }
+
+    .cb-clr:hover {
+      border-color: var(--terra);
+      color: var(--terra);
+    }
+
+    /* ═══ CART DRAWER ═══ */
+    .cart-ov {
+      position: fixed;
+      inset: 0;
+      z-index: 950;
+      background: rgba(28, 28, 28, .55);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+
+    .cart-ov.on {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cart-dr {
+      position: fixed;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 960;
+      width: 420px;
+      max-width: 100vw;
+      background: var(--warm-white);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .4s var(--ease);
+      box-shadow: -8px 0 40px rgba(28, 28, 28, .15);
+    }
+
+    .cart-dr.open {
+      transform: translateX(0);
+    }
+
+    .cd-hd {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .cd-hd h3 {
+      font-family: var(--ff-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: .04em;
+    }
+
+    .cd-cls {
+      width: 32px;
+      height: 32px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: all .2s;
+    }
+
+    .cd-cls:hover {
+      background: var(--terra);
+      color: #fff;
+      border-color: var(--terra);
+    }
+
+    .cd-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 28px;
+    }
+
+    .cd-empty {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .cd-empty img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      opacity: .4;
+      filter: grayscale(1);
+    }
+
+    .cd-empty p {
+      font-family: var(--ff-display);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+
+    .cd-empty span {
+      font-family: var(--ff-body);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Cart item */
+    .ci {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ci-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 3px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .ci-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ci-name {
+      flex: 1;
+      font-family: var(--ff-body);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+
+    .ci-sub {
+      font-family: var(--ff-body);
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .ci-qty {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .cib {
+      width: 28px;
+      height: 28px;
+      background: var(--cream);
+      border: none;
+      color: var(--charcoal);
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .18s;
+    }
+
+    .cib:hover {
+      background: var(--terra);
+      color: #fff;
+    }
+
+    .ciq {
+      width: 32px;
+      text-align: center;
+      font-family: var(--ff-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--charcoal);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+
+    .ci-price {
+      font-family: var(--ff-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--terra);
+      flex-shrink: 0;
+    }
+
+    .cd-ft {
+      padding: 20px 28px;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+      background: var(--cream);
+    }
+
+    .cd-tot {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .cd-tl {
+      font-family: var(--ff-body);
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .cd-tv {
+      font-family: var(--ff-display);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .cd-note {
+      font-family: var(--ff-body);
+      font-size: 10px;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 14px;
+      line-height: 1.6;
+      letter-spacing: .04em;
+    }
+
+    /* ═══ FLOAT WA ═══ */
+    .float-wa {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 800;
+      background: #25D366;
+      color: #fff;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, .45);
+      transition: all .3s var(--ease-back);
+      animation: waPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes waPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, .45), 0 0 0 0 rgba(37, 211, 102, .3);
+      }
+
+      50% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, .45), 0 0 0 12px rgba(37, 211, 102, 0);
+      }
+    }
+
+    .float-wa:hover {
+      transform: scale(1.1);
+    }
+
+    .float-wa svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
+
+    /* ═══ FOOTER ═══ */
+    .footer {
+      background: var(--charcoal);
+      padding: 28px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer p {
+      font-family: var(--ff-body);
+      font-size: 11px;
+      color: rgba(255, 255, 255, .25);
+      letter-spacing: .06em;
+    }
+
+    .footer a {
+      color: var(--terra);
+    }
+
+    .footer-logo {
+      font-family: var(--ff-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .2);
+    }
+
+    .footer-logo span {
+      color: var(--terra);
+    }
+
+    /* ═══ SCROLL REVEAL ═══ */
+    .sr {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+    }
+
+    .sr.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .sr-d1 {
+      transition-delay: .08s;
+    }
+
+    .sr-d2 {
+      transition-delay: .16s;
+    }
+
+    .sr-d3 {
+      transition-delay: .24s;
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:1100px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:768px) {
+      .nav {
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .phd-in,
+      .menu-body,
+      .filter-in {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .promo {
+        padding: 10px 20px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .cart-bar {
+        padding: 12px 20px;
+      }
+
+      .cart-dr {
+        width: 100vw;
+      }
+
+      .footer {
+        padding: 20px;
+      }
+
+      .phd-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .pst {
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-main">Pearl&amp;Thyme<span>.</span></span>
+      <span class="nav-logo-sub">Modern Indian Cuisine</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#menu" class="nl">Menu</a>
+      <a href="index.html#story" class="nl">Our Story</a>
+      <a href="index.html#chef" class="nl">Chef</a>
+      <a href="index.html#gallery" class="nl">Gallery</a>
+      <a href="index.html#reserve" class="nl">Reserve</a>
+      <a href="index.html#contact" class="nl">Contact</a>
+    </div>
+    <div class="nav-r">
+      <a href="index.html#reserve" class="btn btn-outline btn-sm">Book a Table</a>
+      <button class="cart-toggle" id="cartToggle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1" />
+          <circle cx="20" cy="21" r="1" />
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+        </svg>
+        Cart
+        <span class="cart-badge" id="cartBadge" style="display:none;"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ PAGE HEADER ═══ -->
+  <div class="page-hd">
+    <div class="phd-in">
+      <div class="phd-eyebrow">Full Menu — Pearl&amp;Thyme</div>
+      <h1 class="phd-h">Our complete<br><em>culinary journey</em></h1>
+      <p class="phd-sub">Every dish crafted fresh daily. Farm-sourced ingredients. Zero shortcuts. Use code <strong
+          style="color:var(--gold);">PIZZA15</strong> for 15% off all pizzas.</p>
+      <div class="phd-stats">
+        <div class="pst">
+          <div class="pst-n">50+</div>
+          <div class="pst-l">Dishes</div>
+        </div>
+        <div class="pst">
+          <div class="pst-n">7</div>
+          <div class="pst-l">Categories</div>
+        </div>
+        <div class="pst">
+          <div class="pst-n">4.8★</div>
+          <div class="pst-l">Avg Rating</div>
+        </div>
+        <div class="pst">
+          <div class="pst-n">₹499+</div>
+          <div class="pst-l">Free Delivery</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PROMO ═══ -->
+  <div class="promo">
+    <div class="pb-txt">Use code <span class="pb-code">PIZZA15</span> — 15% off all stone-baked pizzas</div>
+    <div class="pb-r">
+      <span class="pb-sub">Free delivery on orders ₹499+</span>
+      <span class="pb-sub">·</span>
+      <span class="pb-sub">WhatsApp orders always open</span>
+    </div>
+  </div>
+
+  <!-- ═══ FILTER TABS ═══ -->
+  <div class="filter-wrap">
+    <div class="filter-in">
+      <button class="fb on" data-cat="all">All Items</button>
+      <button class="fb" data-cat="starters">Starters</button>
+      <button class="fb" data-cat="mains">Mains</button>
+      <button class="fb" data-cat="pizza">Pizza</button>
+      <button class="fb" data-cat="rice">Biryani & Rice</button>
+      <button class="fb" data-cat="breads">Breads</button>
+      <button class="fb" data-cat="desserts">Desserts</button>
+      <button class="fb" data-cat="drinks">Drinks</button>
+    </div>
+  </div>
+
+  <!-- ═══ MENU BODY ═══ -->
+  <div class="menu-body">
+
+    <!-- STARTERS -->
+    <div class="msec sr" data-sec="starters" id="sec-starters">
+      <div class="ms-hd">
+        <div>
+          <div class="ms-h">Starters &amp; <em>Appetisers</em></div>
+          <div class="ms-sub">Tandoor-fired · Freshly marinated</div>
+        </div>
+        <div class="ms-ct">8 items</div>
+      </div>
+      <div class="cards">
+
+        <div class="mc sr sr-d1" data-cat="starters" data-id="s1" data-name="Paneer Tikka" data-price="199"
+          data-img="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=700&q=80" alt="Paneer Tikka"
+              loading="lazy" />
+            <div class="mc-price-badge">₹199</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Starter · Tandoor</div>
+            <div class="mc-name">Paneer Tikka</div>
+            <div class="mc-desc">Marinated cottage cheese charred in the clay tandoor. Served with fresh mint chutney
+              and pickled onions.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-s">Spicy</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d2" data-cat="starters" data-id="s2" data-name="Chicken Tikka" data-price="229"
+          data-img="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-ribbon">Bestseller</div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=700&q=80" alt="Chicken Tikka"
+              loading="lazy" />
+            <div class="mc-price-badge">₹229</div>
+            <div class="vdot nv"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Starter · Tandoor</div>
+            <div class="mc-name">Chicken Tikka</div>
+            <div class="mc-desc">Boneless chicken thighs in smoky yoghurt marinade. Slow-roasted in clay oven till
+              perfectly charred.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-n">Non-Veg</span><span class="tag tag-c">Chef's Pick</span>
+              </div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d3" data-cat="starters" data-id="s3" data-name="Veg Spring Rolls" data-price="149"
+          data-img="https://images.unsplash.com/photo-1606755456206-b25206cde27e?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1606755456206-b25206cde27e?w=700&q=80" alt="Spring Rolls"
+              loading="lazy" />
+            <div class="mc-price-badge">₹149</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Starter · Fried</div>
+            <div class="mc-name">Veg Spring Rolls</div>
+            <div class="mc-desc">Crispy golden rolls stuffed with spiced vegetables and glass noodles. Served with sweet
+              chilli sauce.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr" data-cat="starters" data-id="s4" data-name="Chicken 65" data-price="199"
+          data-img="https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?w=700&q=80" alt="Chicken 65"
+              loading="lazy" />
+            <div class="mc-price-badge">₹199</div>
+            <div class="vdot nv"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Starter · Deep Fried</div>
+            <div class="mc-name">Chicken 65</div>
+            <div class="mc-desc">Fiery South Indian-style fried chicken. Tossed in curry leaves, dried chillies and
+              tangy yoghurt glaze.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-n">Non-Veg</span><span class="tag tag-s">Hot</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d1" data-cat="starters" data-id="s5" data-name="Samosa Platter (4 pcs)" data-price="99"
+          data-img="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=700&q=80" alt="Samosa"
+              loading="lazy" />
+            <div class="mc-price-badge">₹99</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Starter · Street Food</div>
+            <div class="mc-name">Samosa Platter</div>
+            <div class="mc-desc">4 crispy hand-folded samosas with spiced potato and peas filling. Served with green
+              chutney and tamarind sauce.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-m">4 pcs</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d2" data-cat="starters" data-id="s6" data-name="Seekh Kebab" data-price="249"
+          data-img="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=700&q=80" alt="Seekh Kebab"
+              loading="lazy" />
+            <div class="mc-price-badge">₹249</div>
+            <div class="vdot nv"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Starter · Tandoor</div>
+            <div class="mc-name">Seekh Kebab</div>
+            <div class="mc-desc">Minced lamb and herb skewers roasted over live coals. Served with laccha onions and
+              mint dip.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-n">Non-Veg</span><span class="tag tag-c">Chef's Pick</span>
+              </div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MAINS -->
+    <div class="msec sr" data-sec="mains" id="sec-mains">
+      <div class="ms-hd">
+        <div>
+          <div class="ms-h">Main <em>Course</em></div>
+          <div class="ms-sub">Slow-cooked gravies · Fresh daily</div>
+        </div>
+        <div class="ms-ct">10 items</div>
+      </div>
+      <div class="cards">
+
+        <div class="mc sr sr-d1" data-cat="mains" data-id="m1" data-name="Butter Chicken" data-price="299"
+          data-img="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-ribbon">Bestseller</div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=700&q=80" alt="Butter Chicken"
+              loading="lazy" />
+            <div class="mc-price-badge">₹299</div>
+            <div class="vdot nv"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Main Course · Signature</div>
+            <div class="mc-name">Butter Chicken</div>
+            <div class="mc-desc">Rich tomato-cream gravy, slow-cooked for 6 hours. Tender chicken, buttery finish.
+              Served with basmati or naan.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-n">Non-Veg</span><span class="tag tag-c">Chef's Pick</span>
+              </div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d2" data-cat="mains" data-id="m2" data-name="Dal Makhani" data-price="219"
+          data-img="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=700&q=80" alt="Dal Makhani"
+              loading="lazy" />
+            <div class="mc-price-badge">₹219</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Main Course · Dal</div>
+            <div class="mc-name">Dal Makhani</div>
+            <div class="mc-desc">Black lentils slow-cooked overnight with butter and cream. Smoky, rich, deeply
+              comforting.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-c">Classic</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d3" data-cat="mains" data-id="m3" data-name="Paneer Butter Masala" data-price="249"
+          data-img="https://images.unsplash.com/photo-1631452180539-96aca7d48617?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1631452180539-96aca7d48617?w=700&q=80"
+              alt="Paneer Butter Masala" loading="lazy" />
+            <div class="mc-price-badge">₹249</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Main Course · Paneer</div>
+            <div class="mc-name">Paneer Butter Masala</div>
+            <div class="mc-desc">Soft cubes of fresh paneer in velvety tomato-cashew gravy. Mildly spiced, deeply
+              satisfying.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr" data-cat="mains" data-id="m4" data-name="Lamb Rogan Josh" data-price="349"
+          data-img="https://images.unsplash.com/photo-1545247181-516773cae754?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-ribbon">Chef's Pick</div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1545247181-516773cae754?w=700&q=80" alt="Rogan Josh"
+              loading="lazy" />
+            <div class="mc-price-badge">₹349</div>
+            <div class="vdot nv"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Main Course · Kashmiri</div>
+            <div class="mc-name">Lamb Rogan Josh</div>
+            <div class="mc-desc">Slow-braised lamb in a deep Kashmiri gravy of whole spices and Kashmiri chillies.
+              Served with steamed rice.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-n">Non-Veg</span><span class="tag tag-s">Medium</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d1" data-cat="mains" data-id="m5" data-name="Chicken Tikka Masala" data-price="319"
+          data-img="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=700&q=80"
+              alt="Chicken Tikka Masala" loading="lazy" />
+            <div class="mc-price-badge">₹319</div>
+            <div class="vdot nv"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Main Course · Signature</div>
+            <div class="mc-name">Chicken Tikka Masala</div>
+            <div class="mc-desc">Tandoor-grilled chicken in a smoky, aromatic tomato and cream sauce. Finished with
+              fenugreek butter.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-n">Non-Veg</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d2" data-cat="mains" data-id="m6" data-name="Palak Paneer" data-price="229"
+          data-img="https://images.unsplash.com/photo-1618449840665-9ed506d73a34?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1618449840665-9ed506d73a34?w=700&q=80" alt="Palak Paneer"
+              loading="lazy" />
+            <div class="mc-price-badge">₹229</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Main Course · Greens</div>
+            <div class="mc-name">Palak Paneer</div>
+            <div class="mc-desc">Creamy spinach gravy with soft fresh paneer. Blanched, blended and tempered with cumin
+              and garlic.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-c">Healthy</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PIZZA -->
+    <div class="msec sr" data-sec="pizza" id="sec-pizza">
+      <div class="ms-hd">
+        <div>
+          <div class="ms-h">Stone-Baked <em>Pizza</em></div>
+          <div class="ms-sub">Wood-fired · 12 inch · Use code PIZZA15</div>
+        </div>
+        <div class="ms-ct">6 items</div>
+      </div>
+      <div class="cards">
+
+        <div class="mc sr sr-d1" data-cat="pizza" data-id="p1" data-name="Chicken Overload Pizza" data-price="449"
+          data-img="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-ribbon">PIZZA15 = 15% Off</div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=80"
+              alt="Chicken Overload Pizza" loading="lazy" />
+            <div class="mc-price-badge">₹449</div>
+            <div class="vdot nv"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Stone-Baked Pizza</div>
+            <div class="mc-name">Chicken Overload</div>
+            <div class="mc-desc">Grilled chicken, pepperoni, jalapeños, roasted peppers on a crispy stone-baked base.
+              Double mozzarella.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-n">Non-Veg</span><span class="tag tag-c">Bestseller</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d2" data-cat="pizza" data-id="p2" data-name="Margherita Pizza" data-price="299"
+          data-img="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700&q=80" alt="Margherita Pizza"
+              loading="lazy" />
+            <div class="mc-price-badge">₹299</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Stone-Baked Pizza</div>
+            <div class="mc-name">Classic Margherita</div>
+            <div class="mc-desc">San Marzano tomato sauce, fresh buffalo mozzarella, basil and a drizzle of extra-virgin
+              olive oil.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-c">Classic</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d3" data-cat="pizza" data-id="p3" data-name="Spicy Veggie Pizza" data-price="349"
+          data-img="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700&q=80" alt="Veggie Pizza"
+              loading="lazy" />
+            <div class="mc-price-badge">₹349</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Stone-Baked Pizza</div>
+            <div class="mc-name">Spicy Veggie Feast</div>
+            <div class="mc-desc">Red onion, bell peppers, mushrooms, olives, jalapeños and double cheese on a spiced
+              tomato base.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-s">Spicy</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr" data-cat="pizza" data-id="p4" data-name="BBQ Chicken Pizza" data-price="429"
+          data-img="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-ribbon">Chef's Pick</div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=700&q=80" alt="BBQ Chicken Pizza"
+              loading="lazy" />
+            <div class="mc-price-badge">₹429</div>
+            <div class="vdot nv"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Stone-Baked Pizza</div>
+            <div class="mc-name">BBQ Chicken</div>
+            <div class="mc-desc">Smoky BBQ sauce base, pulled chicken, caramelised onions, smoked cheddar and a honey
+              glaze finish.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-n">Non-Veg</span><span class="tag tag-c">Smoky</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BIRYANI & RICE -->
+    <div class="msec sr" data-sec="rice" id="sec-rice">
+      <div class="ms-hd">
+        <div>
+          <div class="ms-h">Biryani &amp; <em>Rice</em></div>
+          <div class="ms-sub">Dum-cooked · Aromatic · Slow pot</div>
+        </div>
+        <div class="ms-ct">5 items</div>
+      </div>
+      <div class="cards">
+
+        <div class="mc sr sr-d1" data-cat="rice" data-id="r1" data-name="Dum Chicken Biryani" data-price="299"
+          data-img="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-ribbon">Chef's Pick</div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=700&q=80" alt="Chicken Biryani"
+              loading="lazy" />
+            <div class="mc-price-badge">₹299</div>
+            <div class="vdot nv"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Biryani · Dum Style</div>
+            <div class="mc-name">Dum Chicken Biryani</div>
+            <div class="mc-desc">Aromatic basmati with whole spices and tender chicken, sealed and dum-cooked. Served
+              with raita and salad.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-n">Non-Veg</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d2" data-cat="rice" data-id="r2" data-name="Veg Biryani" data-price="239"
+          data-img="https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=700&q=80" alt="Veg Biryani"
+              loading="lazy" />
+            <div class="mc-price-badge">₹239</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Biryani · Vegetarian</div>
+            <div class="mc-name">Veg Biryani</div>
+            <div class="mc-desc">Seasonal vegetables with basmati rice, saffron, fried onions and whole spices. Sealed
+              and slow-cooked to perfection.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-c">Aromatic</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d3" data-cat="rice" data-id="r3" data-name="Lamb Biryani" data-price="349"
+          data-img="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-ribbon">Premium</div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=700&q=80" alt="Lamb Biryani"
+              loading="lazy" />
+            <div class="mc-price-badge">₹349</div>
+            <div class="vdot nv"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Biryani · Premium</div>
+            <div class="mc-name">Lamb Dum Biryani</div>
+            <div class="mc-desc">Fall-off-the-bone lamb slow-braised with basmati and 24 whole spices. A weekend
+              indulgence.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-n">Non-Veg</span><span class="tag tag-c">Premium</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr" data-cat="rice" data-id="r4" data-name="Steamed Basmati Rice" data-price="79"
+          data-img="https://images.unsplash.com/photo-1516684732162-798a0062be99?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99?w=700&q=80" alt="Steamed Rice"
+              loading="lazy" />
+            <div class="mc-price-badge">₹79</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Rice · Side</div>
+            <div class="mc-name">Steamed Basmati Rice</div>
+            <div class="mc-desc">Plain steamed long-grain basmati rice. Light, fluffy, fragrant. Perfect alongside any
+              curry or dal.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BREADS -->
+    <div class="msec sr" data-sec="breads" id="sec-breads">
+      <div class="ms-hd">
+        <div>
+          <div class="ms-h">Breads &amp; <em>Rotis</em></div>
+          <div class="ms-sub">Tandoor-fired · Made to order</div>
+        </div>
+        <div class="ms-ct">6 items</div>
+      </div>
+      <div class="cards">
+
+        <div class="mc sr sr-d1" data-cat="breads" data-id="b1" data-name="Butter Naan" data-price="49"
+          data-img="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=700&q=80" alt="Butter Naan"
+              loading="lazy" />
+            <div class="mc-price-badge">₹49</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Bread · Tandoor</div>
+            <div class="mc-name">Butter Naan</div>
+            <div class="mc-desc">Soft leavened bread baked in the clay tandoor. Brushed generously with salted butter
+              straight from the oven.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-c">Classic</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d2" data-cat="breads" data-id="b2" data-name="Garlic Naan" data-price="59"
+          data-img="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-ribbon">Most Ordered</div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700&q=80" alt="Garlic Naan"
+              loading="lazy" />
+            <div class="mc-price-badge">₹59</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Bread · Tandoor</div>
+            <div class="mc-name">Garlic Naan</div>
+            <div class="mc-desc">Topped with minced garlic, fresh coriander and butter. Baked hot in the clay oven.
+              Absolutely addictive.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d3" data-cat="breads" data-id="b3" data-name="Tandoori Roti" data-price="35"
+          data-img="https://images.unsplash.com/photo-1509722747041-616f39b57569?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700&q=80" alt="Tandoori Roti"
+              loading="lazy" />
+            <div class="mc-price-badge">₹35</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Bread · Wholegrain</div>
+            <div class="mc-name">Tandoori Roti</div>
+            <div class="mc-desc">Wholegrain wheat roti baked on the inside wall of the tandoor. Light, charred, and
+              slightly smoky.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-m">Healthy</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DESSERTS -->
+    <div class="msec sr" data-sec="desserts" id="sec-desserts">
+      <div class="ms-hd">
+        <div>
+          <div class="ms-h">Desserts &amp; <em>Sweets</em></div>
+          <div class="ms-sub">Baked fresh · Served warm</div>
+        </div>
+        <div class="ms-ct">5 items</div>
+      </div>
+      <div class="cards">
+
+        <div class="mc sr sr-d1" data-cat="desserts" data-id="ds1" data-name="Fudge Brownie + Ice Cream"
+          data-price="149" data-img="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-ribbon">Fan Favourite</div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=700&q=80" alt="Fudge Brownie"
+              loading="lazy" />
+            <div class="mc-price-badge">₹149</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Dessert · Baked</div>
+            <div class="mc-name">Fudge Brownie</div>
+            <div class="mc-desc">Warm dense fudge brownie, 2 scoops vanilla ice cream, hot chocolate sauce drizzle.
+            </div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-c">Chef's Pick</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d2" data-cat="desserts" data-id="ds2" data-name="Gulab Jamun (2 pcs)" data-price="99"
+          data-img="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=700&q=80" alt="Gulab Jamun"
+              loading="lazy" />
+            <div class="mc-price-badge">₹99</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Dessert · Indian Classic</div>
+            <div class="mc-name">Gulab Jamun</div>
+            <div class="mc-desc">Soft khoya dumplings in warm rose-scented sugar syrup. Topped with crushed pistachios.
+              2 pieces.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-m">2 pcs</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d3" data-cat="desserts" data-id="ds3" data-name="Mango Kulfi" data-price="119"
+          data-img="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=700&q=80" alt="Mango Kulfi"
+              loading="lazy" />
+            <div class="mc-price-badge">₹119</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Dessert · Frozen</div>
+            <div class="mc-name">Mango Kulfi</div>
+            <div class="mc-desc">Traditional Indian frozen cream with Alphonso mango pulp and saffron. Dense, rich and
+              refreshing.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="msec sr" data-sec="drinks" id="sec-drinks">
+      <div class="ms-hd">
+        <div>
+          <div class="ms-h">Drinks &amp; <em>Beverages</em></div>
+          <div class="ms-sub">Fresh · Chilled · Handcrafted</div>
+        </div>
+        <div class="ms-ct">6 items</div>
+      </div>
+      <div class="cards">
+
+        <div class="mc sr sr-d1" data-cat="drinks" data-id="dr1" data-name="Mango Lassi" data-price="99"
+          data-img="https://images.unsplash.com/photo-1605197788044-34f53a4e1130?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-ribbon">Bestseller</div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1605197788044-34f53a4e1130?w=700&q=80" alt="Mango Lassi"
+              loading="lazy" />
+            <div class="mc-price-badge">₹99</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Drink · Lassi</div>
+            <div class="mc-name">Mango Lassi</div>
+            <div class="mc-desc">Thick blended yoghurt with Alphonso mango pulp, a pinch of cardamom and fresh mint.
+              Chilled and served tall.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-c">Refreshing</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d2" data-cat="drinks" data-id="dr2" data-name="Masala Chai" data-price="59"
+          data-img="https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=700&q=80" alt="Masala Chai"
+              loading="lazy" />
+            <div class="mc-price-badge">₹59</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Drink · Hot</div>
+            <div class="mc-name">Masala Chai</div>
+            <div class="mc-desc">Brewed with ginger, cardamom, cinnamon and black tea. Served in a clay cup with a side
+              of biscuit.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-c">Classic</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr sr-d3" data-cat="drinks" data-id="dr3" data-name="Fresh Lime Soda" data-price="69"
+          data-img="https://images.unsplash.com/photo-1542348716-99b79d87efea?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1542348716-99b79d87efea?w=700&q=80" alt="Lime Soda"
+              loading="lazy" />
+            <div class="mc-price-badge">₹69</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Drink · Cold</div>
+            <div class="mc-name">Fresh Lime Soda</div>
+            <div class="mc-desc">Freshly squeezed lime over sparkling water. Choice of sweet, salted or mixed. Mint on
+              request.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc sr" data-cat="drinks" data-id="dr4" data-name="Rose Sharbat" data-price="79"
+          data-img="https://images.unsplash.com/photo-1497534446932-c925b458314e?w=300&q=70">
+          <div class="mc-bar"></div>
+          <div class="mc-img">
+            <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?w=700&q=80" alt="Rose Sharbat"
+              loading="lazy" />
+            <div class="mc-price-badge">₹79</div>
+            <div class="vdot veg"></div>
+          </div>
+          <div class="mc-body">
+            <div class="mc-cat">Drink · Traditional</div>
+            <div class="mc-name">Rose Sharbat</div>
+            <div class="mc-desc">Chilled rose syrup drink with basil seeds, a squeeze of lime and chilled sparkling
+              water. Topped with cream.</div>
+            <div class="mc-foot">
+              <div class="mc-tags"><span class="tag tag-v">Veg</span><span class="tag tag-c">Signature</span></div>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- end menu-body -->
+
+  <!-- ═══ CART BAR ═══ -->
+  <div class="cart-bar" id="cartBar">
+    <div class="cb-l">
+      <div class="cb-badge" id="cbN">0</div>
+      <div>
+        <div class="cb-lbl">Your Order</div>
+        <div class="cb-amt" id="cbAmt">₹0</div>
+      </div>
+    </div>
+    <div class="cb-r">
+      <button class="cb-clr" id="cbClr">✕ Clear</button>
+      <button class="btn btn-outline btn-sm" id="cbView" style="color:#fff;border-color:rgba(255,255,255,.4);">View
+        Cart</button>
+      <button class="btn btn-wa" id="cbCheckout">Checkout on WhatsApp →</button>
+    </div>
+  </div>
+
+  <!-- ═══ CART DRAWER ═══ -->
+  <div class="cart-ov" id="cartOv"></div>
+  <div class="cart-dr" id="cartDr">
+    <div class="cd-hd">
+      <h3>Your Order</h3>
+      <button class="cd-cls" id="cdCls">✕</button>
+    </div>
+    <div class="cd-body" id="cdBody">
+      <div class="cd-empty">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=50" alt="Empty cart" />
+        <p>Your cart is empty</p>
+        <span>Add items to get started</span>
+      </div>
+    </div>
+    <div class="cd-ft">
+      <div class="cd-tot">
+        <span class="cd-tl">Total</span>
+        <span class="cd-tv" id="cdTot">₹0</span>
+      </div>
+      <p class="cd-note">Free delivery ₹499+ · Confirmed in 15 min · No advance payment</p>
+      <button class="btn btn-wa btn-lg" style="width:100%;justify-content:center;" id="cdCheckout">Order on WhatsApp
+        →</button>
+    </div>
+  </div>
+
+  <!-- ═══ FLOAT WA ═══ -->
+  <a class="float-wa" id="floatWA" href="#" aria-label="WhatsApp Order" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-logo">Pearl&amp;Thyme<span>.</span></div>
+    <p>© 2026 Pearl&amp;Thyme · All rights reserved · <a href="index.html">Back to Home →</a></p>
+    <p style="font-size:12px;margin-top:6px;color:var(--muted);">
+      📞 Primary: <a href="tel:+919876543210" style="color:var(--terra);font-weight:500;">+91 98765 43210</a> &nbsp;·&nbsp;
+      📱 Alt: <a href="tel:+919876543211" style="color:var(--terra);font-weight:500;">+91 98765 43211</a> &nbsp;·&nbsp;
+      ✉️ <a href="mailto:hello@pearlandthyme.com" style="color:var(--terra);font-weight:500;">hello@pearlandthyme.com</a>
+    </p>
+    <p style="font-size:10px;">Daily 8 AM – 11 PM · WhatsApp Orders Always Open</p>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var PHONE = '919876543210', WA = 'https://wa.me/' + PHONE;
+      var ALT_PHONE = '919876543211';
+      document.getElementById('floatWA').href = WA;
+
+      // ── SCROLL REVEAL ──
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.05 });
+      document.querySelectorAll('.sr').forEach(function (el) { obs.observe(el); });
+
+      // ── FILTER ──
+      document.querySelectorAll('.fb').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('.fb').forEach(function (x) { x.classList.remove('on'); });
+          b.classList.add('on');
+          var cat = b.getAttribute('data-cat');
+          document.querySelectorAll('.mc').forEach(function (c) {
+            c.style.display = (cat === 'all' || c.getAttribute('data-cat') === cat) ? '' : 'none';
+          });
+          document.querySelectorAll('.msec').forEach(function (s) {
+            s.style.display = (cat === 'all' || s.getAttribute('data-sec') === cat) ? '' : 'none';
+          });
+          // scroll to section if specific tab
+          if (cat !== 'all') {
+            var sec = document.getElementById('sec-' + cat);
+            if (sec) { setTimeout(function () { sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80); }
+          }
+        });
+      });
+
+      // ── CART ──
+      var cart = {};
+      var total = function () { return Object.values(cart).reduce(function (s, i) { return s + i.price * i.qty; }, 0); };
+      var count = function () { return Object.values(cart).reduce(function (s, i) { return s + i.qty; }, 0); };
+
+      function updateUI() {
+        var c = count(), t = total(), has = c > 0;
+        document.getElementById('cartBar').classList.toggle('show', has);
+        document.getElementById('cbN').textContent = c;
+        document.getElementById('cbAmt').textContent = '₹' + t;
+        document.getElementById('cdTot').textContent = '₹' + t;
+        var badge = document.getElementById('cartBadge');
+        badge.style.display = has ? 'inline-flex' : 'none';
+        badge.textContent = c;
+        renderDrawer();
+      }
+
+      function renderDrawer() {
+        var body = document.getElementById('cdBody');
+        var items = Object.values(cart);
+        if (!items.length) {
+          body.innerHTML = '<div class="cd-empty"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=50" alt="Empty"/><p>Your cart is empty</p><span>Add items to get started</span></div>';
+          return;
+        }
+        body.innerHTML = items.map(function (item) {
+          return '<div class="ci">'
+            + '<div class="ci-img"><img src="' + (item.img || 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&q=60') + '" alt="' + item.name + '" loading="lazy"/></div>'
+            + '<div style="flex:1;min-width:0;">'
+            + '<div class="ci-name">' + item.name + '</div>'
+            + '<div class="ci-sub">₹' + item.price + ' each</div>'
+            + '</div>'
+            + '<div class="ci-qty">'
+            + '<button class="cib" data-a="d" data-id="' + item.id + '">−</button>'
+            + '<div class="ciq">' + item.qty + '</div>'
+            + '<button class="cib" data-a="i" data-id="' + item.id + '">+</button>'
+            + '</div>'
+            + '<div class="ci-price">₹' + (item.price * item.qty) + '</div>'
+            + '</div>';
+        }).join('');
+        body.querySelectorAll('.cib').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var id = btn.getAttribute('data-id'), a = btn.getAttribute('data-a');
+            if (!cart[id]) return;
+            if (a === 'i') cart[id].qty++;
+            else { cart[id].qty--; if (cart[id].qty <= 0) delete cart[id]; }
+            updateUI();
+          });
+        });
+      }
+
+      document.querySelectorAll('.add-btn').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var c = btn.closest('.mc');
+          var id = c.getAttribute('data-id');
+          var name = c.getAttribute('data-name');
+          var price = parseInt(c.getAttribute('data-price'));
+          var img = c.getAttribute('data-img') || '';
+          if (cart[id]) cart[id].qty++;
+          else cart[id] = { id: id, name: name, price: price, qty: 1, img: img };
+          btn.textContent = '✓'; btn.classList.add('added');
+          setTimeout(function () { btn.textContent = '+'; btn.classList.remove('added'); }, 700);
+          updateUI();
+        });
+      });
+
+      var openDr = function () { document.getElementById('cartDr').classList.add('open'); document.getElementById('cartOv').classList.add('on'); document.body.style.overflow = 'hidden'; };
+      var closeDr = function () { document.getElementById('cartDr').classList.remove('open'); document.getElementById('cartOv').classList.remove('on'); document.body.style.overflow = ''; };
+      document.getElementById('cartToggle').addEventListener('click', openDr);
+      document.getElementById('cbView').addEventListener('click', openDr);
+      document.getElementById('cdCls').addEventListener('click', closeDr);
+      document.getElementById('cartOv').addEventListener('click', closeDr);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDr(); });
+      document.getElementById('cbClr').addEventListener('click', function () { cart = {}; updateUI(); });
+
+      function checkout() {
+        var items = Object.values(cart);
+        if (!items.length) { alert('Your cart is empty!'); return; }
+        var msg = "Hello Pearl&Thyme! \uD83C\uDF7D\uFE0F\n\nMY ORDER:\n\n";
+        items.forEach(function (i) { msg += "• " + i.name + " × " + i.qty + " = ₹" + (i.price * i.qty) + "\n"; });
+        msg += "\nTOTAL: ₹" + total();
+        msg += "\n\nORDER TYPE: Dine-in / Takeaway / Delivery\nName:\nPhone:\nAddress (if delivery):\n\nPlease confirm. Thank you!";
+        window.open(WA + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+      }
+      document.getElementById('cbCheckout').addEventListener('click', checkout);
+      document.getElementById('cdCheckout').addEventListener('click', checkout);
+      updateUI();
+    })();
+  </script>
+</body>
+
+</html>
